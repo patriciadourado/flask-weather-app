@@ -1,0 +1,46 @@
+
+<!-- --- index.html
+--- Created by Patricia Nunes Dourado
+--- May 15 of 2019;
+ -->
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Language" content="pt-br, en, fr, it"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}Flask App - {{purpose}}{% endblock %}</title> 
+    {% block css %}
+    <link rel="stylesheet" href="{{ url_for('static',filename="css/bootstrap.min.css") }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename="css/app.css") }}">
+    {% endblock %}
+</head>
+    <body>
+        <div class="row">
+            <div class="col my-header">
+                {% block header %}
+                <h1>{{purpose}} - Flask</h1>
+                {% endblock %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col my-form">
+                {% block form %}
+                <form method="POST" action="/map">
+                    <input type="text" name="city" placeholder="City"/>
+                    <input type="text" name="country" placeholder="Country (ex. BR)"/>
+                    <button type="submit"> get info</button>
+                </form>
+                {% endblock %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col my-body">
+                {% block table %}
+                <div class="error-message">
+                   <p> {{ error_msg }} </p>
+                </div>
+                {% endblock %}
+            </div>
+        </div>
+    </body>
+    </html>

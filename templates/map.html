@@ -1,0 +1,42 @@
+<!-- --- map.html
+--- Created by Patricia Nunes Dourado
+--- May 15 of 2019;
+ -->
+{% extends "index.html" %}
+
+{% block form %}<!-- remove form -->{% endblock %}
+{% block table %}
+    {% if weather_info %}
+        <div class="info">
+            <div class="info-weather">
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>City</th>
+                                <th>Country</th>
+                                <th>Condition</th>
+                                <th>Wind Speed</th>
+                                <th>Temperature</th>
+                                <th>Temp. Max.</th>
+                                <th>Temp. Min.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ weather_info['city'] }}</td>
+                                <td>{{ weather_info['country'] }}</td>
+                                <td>{{ weather_info['description'] }}</td>
+                                <td>{{ weather_info['wind_speed'] }} m/s</td>
+                                <td>{{ weather_info['temp'] }} &#8451;</td>
+                                <td>{{ weather_info['temp_max'] }} &#8451;</td>
+                                <td>{{ weather_info['temp_min'] }} &#8451;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    
+{% endblock %}
